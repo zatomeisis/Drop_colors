@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://10qt561kimhh"]
+
+[ext_resource type="Texture2D" uid="uid://dqegqw7ond2x1" path="res://Sprites/Bola.png" id="1_wxb6x"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_77cs8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jfhuo"]
+radius = 26.0
+
+[node name="Naranja" type="RigidBody2D" groups=["naranja"]]
+physics_material_override = SubResource("PhysicsMaterial_77cs8")
+gravity_scale = 0.75
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["naranja"]]
+shape = SubResource("CircleShape2D_jfhuo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["naranja"]]
+modulate = Color(0.996078, 0.498039, 0.176471, 1)
+texture_filter = 1
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_wxb6x")

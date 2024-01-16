@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://bt0qu0ruehxde"]
+
+[ext_resource type="Texture2D" uid="uid://dvtn62i5bci6x" path="res://Sprites/lados.png" id="1_xyp7c"]
+[ext_resource type="Texture2D" uid="uid://bv8im40phaunu" path="res://Sprites/spawn_zone.png" id="2_pesjw"]
+[ext_resource type="PackedScene" uid="uid://cqfql4m1fpynb" path="res://meta.tscn" id="3_xp5l0"]
+[ext_resource type="PackedScene" uid="uid://10qt561kimhh" path="res://naranja.tscn" id="4_rrggh"]
+[ext_resource type="Script" path="res://spawn_control.gd" id="5_oua5o"]
+[ext_resource type="PackedScene" uid="uid://cfeyke0uy0h5p" path="res://violeta.tscn" id="6_3qrve"]
+[ext_resource type="PackedScene" uid="uid://my1hvglm6sgf" path="res://verde.tscn" id="7_gos50"]
+[ext_resource type="PackedScene" uid="uid://c4np8dud7dwdu" path="res://hud.tscn" id="8_7wf4g"]
+[ext_resource type="Script" path="res://fondo_reloj.gd" id="9_qjgla"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vhlh"]
+size = Vector2(900, 36)
+
+[node name="Juego" type="Node2D"]
+
+[node name="Level_design" type="Node2D" parent="."]
+
+[node name="Lados" type="Sprite2D" parent="Level_design"]
+position = Vector2(287.5, 450)
+texture = ExtResource("1_xyp7c")
+
+[node name="Lados2" type="Sprite2D" parent="Level_design"]
+position = Vector2(1312.5, 450)
+rotation = 3.14159
+texture = ExtResource("1_xyp7c")
+
+[node name="SpawnZone" type="Sprite2D" parent="Level_design"]
+position = Vector2(800, 41.5)
+texture = ExtResource("2_pesjw")
+
+[node name="Meta" parent="." instance=ExtResource("3_xp5l0")]
+position = Vector2(800, 450)
+scale = Vector2(0.5, 0.25)
+
+[node name="fondo_reloj" type="Area2D" parent="."]
+script = ExtResource("9_qjgla")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fondo_reloj"]
+position = Vector2(800, 882)
+shape = SubResource("RectangleShape2D_4vhlh")
+
+[node name="spawn_control" type="Node" parent="."]
+script = ExtResource("5_oua5o")
+objeto_naranja = ExtResource("4_rrggh")
+objeto_violeta = ExtResource("6_3qrve")
+objeto_verde = ExtResource("7_gos50")
+
+[node name="Marker2D" type="Marker2D" parent="spawn_control"]
+position = Vector2(400, 0)
+
+[node name="spawn_timer" type="Timer" parent="spawn_control"]
+wait_time = 0.75
+
+[node name="HUD" parent="." instance=ExtResource("8_7wf4g")]
+
+[connection signal="body_entered" from="fondo_reloj" to="fondo_reloj" method="_on_body_entered"]
+[connection signal="timeout" from="spawn_control/spawn_timer" to="spawn_control" method="_on_spawn_timer_timeout"]
+[connection signal="start_game" from="HUD" to="spawn_control" method="start"]

@@ -1,0 +1,204 @@
+[gd_scene load_steps=14 format=3 uid="uid://c4np8dud7dwdu"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_fd3nw"]
+[ext_resource type="FontFile" uid="uid://j7g1qydo2mov" path="res://Sprites/rainyhearts.ttf" id="2_mf4qk"]
+[ext_resource type="Texture2D" uid="uid://vbsynhuv874d" path="res://Sprites/lado iz.png" id="2_ujsw3"]
+[ext_resource type="Texture2D" uid="uid://bypa1m0awf6nd" path="res://Sprites/lado de.png" id="3_urty3"]
+[ext_resource type="Texture2D" uid="uid://g6dt5jgsjlnm" path="res://Sprites/spawn_zone.png" id="4_fx0hl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_puyrb"]
+font = ExtResource("2_mf4qk")
+font_size = 94
+font_color = Color(0.6, 0.85098, 0.54902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_s1p58"]
+font = ExtResource("2_mf4qk")
+font_size = 94
+font_color = Color(0.6, 0.85098, 0.54902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v4ny8"]
+font = ExtResource("2_mf4qk")
+font_size = 76
+font_color = Color(0.188235, 0.188235, 0.188235, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_s41qg"]
+font = ExtResource("2_mf4qk")
+font_size = 80
+font_color = Color(0.188235, 0.188235, 0.188235, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8lmp3"]
+font = ExtResource("2_mf4qk")
+font_size = 64
+font_color = Color(0.6, 0.85098, 0.54902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pdy5q"]
+font = ExtResource("2_mf4qk")
+font_size = 44
+font_color = Color(0.6, 0.85098, 0.54902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rbyig"]
+font = ExtResource("2_mf4qk")
+font_size = 94
+font_color = Color(0.6, 0.85098, 0.54902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xy1wb"]
+font = ExtResource("2_mf4qk")
+font_size = 44
+font_color = Color(0.6, 0.85098, 0.54902, 1)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_fd3nw")
+
+[node name="score_label" type="Label" parent="."]
+offset_left = 59.0
+offset_top = 30.0
+offset_right = 101.0
+offset_bottom = 120.0
+text = "0"
+label_settings = SubResource("LabelSettings_puyrb")
+
+[node name="vida_label" type="Label" parent="."]
+offset_left = 60.0
+offset_top = 166.0
+offset_right = 102.0
+offset_bottom = 256.0
+text = "5"
+label_settings = SubResource("LabelSettings_s1p58")
+
+[node name="start_button" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -263.0
+offset_top = -161.0
+offset_right = -85.0
+offset_bottom = -39.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_mf4qk")
+theme_override_font_sizes/font_size = 64
+text = "Start"
+
+[node name="restart_button" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -263.0
+offset_top = -161.0
+offset_right = -85.0
+offset_bottom = -39.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_mf4qk")
+theme_override_font_sizes/font_size = 50
+text = "Restart"
+
+[node name="game_over_text" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER!"
+label_settings = SubResource("LabelSettings_v4ny8")
+
+[node name="GO!_Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "GO!"
+label_settings = SubResource("LabelSettings_s41qg")
+
+[node name="go_timer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="tutorial_label" type="Label" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 66.0
+offset_top = 305.0
+offset_right = 331.0
+offset_bottom = 394.0
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_8lmp3")
+vertical_alignment = 1
+
+[node name="info_label LP" type="Label" parent="."]
+offset_left = 63.0
+offset_top = 238.0
+offset_right = 306.0
+offset_bottom = 283.0
+text = "LIFE POINTS"
+label_settings = SubResource("LabelSettings_pdy5q")
+
+[node name="info_label SCORE" type="Label" parent="."]
+offset_left = 62.0
+offset_top = 103.0
+offset_right = 305.0
+offset_bottom = 145.0
+text = "SCORE
+"
+label_settings = SubResource("LabelSettings_pdy5q")
+
+[node name="bonus_label" type="Label" parent="."]
+offset_left = 851.0
+offset_top = 75.0
+offset_right = 1200.0
+offset_bottom = 164.0
+text = "8"
+label_settings = SubResource("LabelSettings_rbyig")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="bonus_ct_label" type="Label" parent="."]
+offset_left = 852.0
+offset_top = 150.0
+offset_right = 1200.0
+offset_bottom = 237.0
+text = "BONUS
+COUNTDOWN"
+label_settings = SubResource("LabelSettings_xy1wb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level_design" type="Node2D" parent="."]
+
+[node name="Lados" type="Sprite2D" parent="Level_design"]
+position = Vector2(200, 450)
+texture = ExtResource("2_ujsw3")
+
+[node name="Lados2" type="Sprite2D" parent="Level_design"]
+position = Vector2(1000, 450)
+texture = ExtResource("3_urty3")
+
+[node name="SpawnZone" type="Sprite2D" parent="Level_design"]
+top_level = true
+position = Vector2(600, 25)
+texture = ExtResource("4_fx0hl")
+
+[connection signal="restart" from="." to="." method="reinicio"]
+[connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="restart_button" to="." method="_on_restart_button_pressed"]
+[connection signal="timeout" from="go_timer" to="." method="show_go"]

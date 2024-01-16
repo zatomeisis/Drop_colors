@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfeyke0uy0h5p"]
+
+[ext_resource type="Texture2D" uid="uid://dqegqw7ond2x1" path="res://Sprites/Bola.png" id="1_dt2cq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l4xka"]
+radius = 26.0
+
+[node name="violeta" type="RigidBody2D" groups=["violeta"]]
+gravity_scale = 0.75
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["violeta"]]
+shape = SubResource("CircleShape2D_l4xka")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["violeta"]]
+modulate = Color(0.65098, 0.388235, 0.8, 1)
+texture_filter = 1
+position = Vector2(-2.38419e-07, -9.53674e-07)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_dt2cq")
